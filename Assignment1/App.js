@@ -29,6 +29,16 @@ export default function App() {
     setSignUpScreenVisible(true);
   };
 
+  const finishConfirm = () => {
+    setFinishConfirmCardVisible(true);
+    setConfirmScreenVisible(false);
+  };
+
+  const finishLater = () => {
+    setFinishLaterCardVisible(true);
+    setConfirmScreenVisible(false);
+  };
+
   const [signUpScreenVisible, setSignUpScreenVisible] = useState(true);
   const [confirmScreenVisible, setConfirmScreenVisible] = useState(false);
 
@@ -49,6 +59,8 @@ export default function App() {
         phoneText={phoneText}
         confirmToSignUp={confirmToSignUp}
         confirmScreenVisible={confirmScreenVisible}
+        finishConfirm={finishConfirm}
+        finishLater={finishLater}
       />
       <LinearGradient
         colors={["rgb(140,205,242)", "rgb(118, 126, 181)"]}
