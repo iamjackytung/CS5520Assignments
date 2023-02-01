@@ -11,6 +11,7 @@ import { React } from "react";
 import { Image } from "react-native";
 
 export default function FinishScreen(props) {
+  //   console.log(props);
   const id = props.phoneText.charAt(props.phoneText.length - 1);
   return (
     <>
@@ -20,6 +21,12 @@ export default function FinishScreen(props) {
             Thank you for signing up. Here's a picture for you based on the last
             digit of your phone number.
           </Text>
+          <Image
+            style={styles.image}
+            source={{
+              uri: `https://picsum.photos/id/${id}/100/100.jpg`,
+            }}
+          />
           <View style={styles.buttons}>
             <Button
               onPress={() => props.startAgain()}
@@ -32,6 +39,10 @@ export default function FinishScreen(props) {
       <Modal transparent={true} visible={props.finishLaterCard}>
         <View style={styles.card}>
           <Text style={styles.title}>Sorry to see you go.</Text>
+          <Image
+            style={styles.image}
+            source={require("../assets/sad-face.png")}
+          />
           <View style={styles.buttons}>
             <Button
               onPress={() => props.startAgain()}
