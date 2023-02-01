@@ -1,5 +1,6 @@
 import { View, Text, Button, StyleSheet, Modal } from "react-native";
 import { React } from "react";
+import Utilities from "../Utilities";
 
 export default function ConfirmScreen(props) {
   return (
@@ -51,12 +52,12 @@ const styles = StyleSheet.create({
     width: "80%",
     marginBottom: 10,
     padding: 10,
-    backgroundColor: "lightgrey",
+    backgroundColor: Utilities.cardBackgroundColor,
     alignSelf: "center",
     marginTop: 40,
     borderRadius: 10,
     elevation: 5,
-    shadow: "black",
+    shadow: Utilities.shadowColor,
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,

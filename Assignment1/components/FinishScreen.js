@@ -1,5 +1,6 @@
 import { View, Text, Button, StyleSheet, Modal, Image } from "react-native";
 import { React } from "react";
+import Utilities from "../Utilities";
 
 export default function FinishScreen(props) {
   const id = props.phoneText.charAt(props.phoneText.length - 1);
@@ -56,13 +57,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 10,
     borderColor: "grey",
-    backgroundColor: "lightgrey",
+    backgroundColor: Utilities.cardBackgroundColor,
     alignSelf: "center",
     alignItems: "center",
     marginTop: 40,
     borderRadius: 10,
     elevation: 5,
-    shadow: "black",
+    shadow: Utilities.shadowColor,
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   title: {
     margin: 10,
     fontSize: 20,
-    color: "purple",
+    color: Utilities.primaryTextColor,
   },
   image: {
     width: 100,

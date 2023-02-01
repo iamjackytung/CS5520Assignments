@@ -1,5 +1,6 @@
 import { View, Text, Button, StyleSheet, TextInput, Modal } from "react-native";
 import { React, useState } from "react";
+import Utilities from "../Utilities";
 
 export default function StartingScreen({
   emailUpdateFunction,
@@ -12,8 +13,8 @@ export default function StartingScreen({
 }) {
   const [validEmailText, setValidEmailText] = useState("");
   const [validPhoneText, setValidPhoneText] = useState("");
-  let email = false;
-  let phone = false;
+  let emailIsValid = false;
+  let phoneIsValid = false;
 
   return (
     <Modal transparent={true} visible={signUpScreenVisible}>
@@ -48,7 +49,6 @@ export default function StartingScreen({
             }}
             title="Reset"
             color="red"
-            accessibilityLabel="Learn more about this purple button"
           />
           <Text>{"   "}</Text>
           <Button
@@ -60,10 +60,10 @@ export default function StartingScreen({
                     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                   )
               ) {
-                email = true;
+                emailIsValid = true;
                 setValidEmailText("");
               } else {
-                email = false;
+                emailIsValid = false;
                 setValidEmailText("Please enter a valid email");
               }
 
@@ -74,18 +74,17 @@ export default function StartingScreen({
                     /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
                   )
               ) {
-                phone = true;
+                phoneIsValid = true;
                 setValidPhoneText("");
               } else {
-                phone = false;
+                phoneIsValid = false;
                 setValidPhoneText("Please enter a valid phone number");
               }
 
-              if (phone && email) signUpToConfirm();
+              if (phoneIsValid && emailIsValid) signUpToConfirm();
             }}
             title="Sign up"
             color="blue"
-            accessibilityLabel="Learn more about this purple button"
           />
         </View>
       </View>
@@ -105,23 +104,23 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 40,
     paddingVertical: 10,
-    borderColor: "purple",
+    borderColor: Utilities.primaryTextColor,
   },
   card: {
     width: "80%",
     marginBottom: 10,
     padding: 10,
-    backgroundColor: "lightgrey",
+    backgroundColor: Utilities.cardBackgroundColor,
     alignSelf: "center",
     borderRadius: 10,
     elevation: 5,
-    shadow: "black",
+    shadow: Utilities.shadowColor,
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
   signUpText: {
-    color: "purple",
+    color: Utilities.primaryTextColor,
   },
   inputTitle: {
     marginTop: 10,
@@ -131,6 +130,6 @@ const styles = StyleSheet.create({
     height: 30,
     width: "100%",
     borderBottomWidth: 1,
-    borderBottomColor: "red",
+    borderBottomColor: Utilities.negativeButtonCOlors,
   },
 });
