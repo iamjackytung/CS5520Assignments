@@ -24,6 +24,20 @@ export default function ConfirmScreen(props) {
           color="red"
           accessibilityLabel="Learn more about this purple button"
         />
+        <Text>{}</Text>
+        <Button
+          onPress={() => props.finishConfirm()}
+          title="Confirm"
+          color="blue"
+          accessibilityLabel="Learn more about this purple button"
+        />
+        <Text>{}</Text>
+        <Button
+          onPress={() => props.finishLater()}
+          title="Finish Later"
+          color="blue"
+          accessibilityLabel="Learn more about this purple button"
+        />
       </View>
     </Modal>
   );
