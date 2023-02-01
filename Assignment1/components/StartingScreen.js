@@ -1,14 +1,5 @@
-import {
-  View,
-  Text,
-  Alert,
-  Button,
-  StyleSheet,
-  TextInput,
-  Modal,
-} from "react-native";
-import { React, useEffect, useState, useRef } from "react";
-import { LinearGradient } from "expo-linear-gradient";
+import { View, Text, Button, StyleSheet, TextInput, Modal } from "react-native";
+import { React, useState } from "react";
 
 export default function StartingScreen({
   emailUpdateFunction,

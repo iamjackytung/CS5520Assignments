@@ -1,9 +1,7 @@
-import { View, Text, Alert, Button, StyleSheet, Modal } from "react-native";
-import { React, useEffect, useState, useRef } from "react";
-import { LinearGradient } from "expo-linear-gradient";
+import { View, Text, Button, StyleSheet, Modal } from "react-native";
+import { React } from "react";
 
 export default function ConfirmScreen(props) {
-  console.log(props);
   return (
     <Modal
       style={styles.card}
@@ -22,21 +20,21 @@ export default function ConfirmScreen(props) {
           onPress={() => props.confirmToSignUp()}
           title="Go back"
           color="red"
-          accessibilityLabel="Learn more about this purple button"
+          accessibilityLabel="This button takes you back to sign up screen"
         />
         <Text>{}</Text>
         <Button
           onPress={() => props.finishConfirm()}
           title="Confirm"
           color="blue"
-          accessibilityLabel="Learn more about this purple button"
+          accessibilityLabel="This button confirms your information and takes you ro Finish Screen"
         />
         <Text>{}</Text>
         <Button
           onPress={() => props.finishLater()}
           title="Finish Later"
           color="blue"
-          accessibilityLabel="Learn more about this purple button"
+          accessibilityLabel="This button takes you to finish later part of finish screen and does not save your information"
         />
       </View>
     </Modal>

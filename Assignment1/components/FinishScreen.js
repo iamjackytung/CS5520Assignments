@@ -1,17 +1,7 @@
-import {
-  View,
-  Text,
-  Alert,
-  Button,
-  StyleSheet,
-  Modal,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, Button, StyleSheet, Modal, Image } from "react-native";
 import { React } from "react";
-import { Image } from "react-native";
 
 export default function FinishScreen(props) {
-  //   console.log(props);
   const id = props.phoneText.charAt(props.phoneText.length - 1);
   return (
     <>

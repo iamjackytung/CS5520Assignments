@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { StyleSheet, Text, View, SafeAreaView, Dimensions } from "react-native";
+import { StyleSheet, View, SafeAreaView, Dimensions } from "react-native";
 let ScreenHeight = Dimensions.get("window").height;
 
 import { LinearGradient } from "expo-linear-gradient";
