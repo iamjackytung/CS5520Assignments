@@ -3,6 +3,7 @@ import StartingScreen from "./components/StartingScreen";
 let ScreenHeight = Dimensions.get("window").height;
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
+import ConfirmScreen from "./components/ConfirmScreen";
 
 export default function App() {
   const [emailText, onChangeEmailAddress] = useState("");
@@ -23,7 +24,13 @@ export default function App() {
     onChangePhoneNumber("");
   };
 
+  const confirmToSignUp = () => {
+    setConfirmScreenVisible(false);
+    setSignUpScreenVisible(true);
+  };
+
   const [signUpScreenVisible, setSignUpScreenVisible] = useState(true);
+  const [confirmScreenVisible, setConfirmScreenVisible] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,6 +43,12 @@ export default function App() {
         signUpToConfirm={signUpToConfirm}
         signUpScreenVisible={signUpScreenVisible}
         resetFunction={resetFunction}
+      />
+      <ConfirmScreen
+        emailText={emailText}
+        phoneText={phoneText}
+        confirmToSignUp={confirmToSignUp}
+        confirmScreenVisible={confirmScreenVisible}
       />
       <LinearGradient
         colors={["rgb(140,205,242)", "rgb(118, 126, 181)"]}
