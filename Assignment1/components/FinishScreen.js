@@ -20,12 +20,6 @@ export default function FinishScreen(props) {
             Thank you for signing up. Here's a picture for you based on the last
             digit of your phone number.
           </Text>
-          <Image
-            style={styles.image}
-            source={{
-              uri: `https://picsum.photos/id/${id}/100/100.jpg`,
-            }}
-          />
           <View style={styles.buttons}>
             <Button
               onPress={() => props.startAgain()}
