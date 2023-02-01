@@ -15,6 +15,7 @@ export default function StartingScreen({
   phoneUpdateFunction,
   emailText,
   phoneText,
+  signUpToConfirm,
   signUpScreenVisible,
   resetFunction,
 }) {
@@ -22,6 +23,7 @@ export default function StartingScreen({
   const [validPhoneText, setValidPhoneText] = useState("");
   let email = false;
   let phone = false;
+
   return (
     <Modal transparent={true} visible={signUpScreenVisible}>
       <View style={styles.textBox}>
@@ -55,6 +57,43 @@ export default function StartingScreen({
             }}
             title="Reset"
             color="red"
+            accessibilityLabel="Learn more about this purple button"
+          />
+          <Text>{"   "}</Text>
+          <Button
+            onPress={() => {
+              if (
+                String(emailText)
+                  .toLowerCase()
+                  .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                  )
+              ) {
+                email = true;
+                setValidEmailText("");
+              } else {
+                email = false;
+                setValidEmailText("Please enter a valid email");
+              }
+
+              if (
+                String(phoneText)
+                  .toLowerCase()
+                  .match(
+                    /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
+                  )
+              ) {
+                phone = true;
+                setValidPhoneText("");
+              } else {
+                phone = false;
+                setValidPhoneText("Please enter a valid phone number");
+              }
+
+              if (phone && email) signUpToConfirm();
+            }}
+            title="Sign up"
+            color="blue"
             accessibilityLabel="Learn more about this purple button"
           />
         </View>
